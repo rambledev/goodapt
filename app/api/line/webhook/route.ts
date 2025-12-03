@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import * as LineSDK from "@line/bot-sdk";
 import Tesseract from "tesseract.js";
 
+export function GET() {
+  // สำหรับ LINE Webhook Verify (ต้องตอบ 200 เท่านั้น)
+  return NextResponse.json({ status: "ok" }, { status: 200 });
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
